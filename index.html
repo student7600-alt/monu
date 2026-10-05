@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C# Programming Assignments Workbench &bull; Corrected &amp; Executable</title>
+    <meta name="description" content="Interactive browser workbench executing all 13 C# programming assignments including console programs, OOP, Exception handling, and simulated Windows Forms GUI controls.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <!-- Top Header -->
+    <header class="app-header">
+        <div class="brand-section">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation">☰</button>
+            <div class="brand-logo">C#</div>
+            <div>
+                <h1 class="brand-title">C# Programming Lab Workbench</h1>
+                <div class="brand-subtitle">Visual Studio 2008 &bull; .NET 3.5 &bull; 29 Executable Programs (Assignments 1–13)</div>
+            </div>
+        </div>
+        <div class="header-badges">
+            <a href="../index.html" class="stat-pill" style="text-decoration: none; border-color: rgba(56, 189, 248, 0.3); color: #7dd3fc; background: rgba(56, 189, 248, 0.1);" title="Go to Data Structures Workbench">
+                <span>📦</span> DS Workbench
+            </a>
+            <div class="stat-pill">
+                <span>🔥</span> 29 Executable C# Programs
+            </div>
+            <div class="stat-pill" style="border-color: rgba(52, 211, 153, 0.3); color: #6ee7b7; background: rgba(52, 211, 153, 0.1);">
+                <span>🟢</span> Browser .NET Runtime
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="app-sidebar" id="sidebar">
+            <div class="sidebar-search-box">
+                <div class="search-input-wrap">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="searchPrograms" class="app-input" placeholder="Search C# assignments (e.g. loops, winforms, timer)..." spellcheck="false" autocomplete="off" />
+                </div>
+            </div>
+
+            <!-- Category Pills -->
+            <div class="sidebar-filters-wrap" id="categoryFilters">
+                <!-- Dynamically generated category filter pills -->
+            </div>
+
+            <!-- Program List -->
+            <nav class="program-list" id="programList" aria-label="C# Assignments List">
+                <!-- Dynamically populated C# assignment cards -->
+            </nav>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="main-content">
+            <!-- Program Hero Header -->
+            <section class="program-hero" id="programHero">
+                <div class="hero-left">
+                    <div class="hero-meta-row">
+                        <span class="badge badge-num" id="currentAssignment">ASSIGNMENT 1</span>
+                        <span class="badge badge-category" id="currentCategoryBadge">Basic I/O &amp; Loops</span>
+                        <span class="badge badge-console" id="currentTypeBadge">💻 Console Application</span>
+                    </div>
+                    <h2 class="hero-title" id="currentTitle">Print a Given String N Times</h2>
+                    <p class="hero-aim" id="currentAim">Write a C# program to read a string and a count from the user, then print the string that number of times.</p>
+                </div>
+                <div class="hero-actions">
+                    <button class="action-btn btn-secondary" id="copyCodeBtn" title="Copy clean C# code">
+                        <span>📋</span> Copy C# Code
+                    </button>
+                    <button class="action-btn btn-outline" id="downloadCsBtn" title="Download .cs file for Visual Studio">
+                        <span>💾</span> Download .cs
+                    </button>
+                </div>
+            </section>
+
+            <!-- Navigation Tabs -->
+            <nav class="tabs-navigation" aria-label="Workbench Views">
+                <button class="tab-btn active" data-tab="tabVisualizer">
+                    <span>⚡</span> Interactive Execution / Windows Forms
+                </button>
+                <button class="tab-btn" data-tab="tabCode">
+                    <span>💻</span> C# Source Code (.NET 3.5 / VS 2008)
+                </button>
+                <button class="tab-btn" data-tab="tabTerminal">
+                    <span>📟</span> VS Command Prompt
+                </button>
+                <button class="tab-btn" data-tab="tabTheory">
+                    <span>📖</span> Assignment Concept &amp; Architecture
+                </button>
+            </nav>
+
+            <!-- TAB 1: Interactive Execution & Windows Forms Simulator -->
+            <div class="tab-pane active" id="tabVisualizer">
+                <div class="execution-workspace">
+                    <!-- Left: Interactive Canvas / WinForms Desktop -->
+                    <div id="visualizerCanvas">
+                        <!-- Populated dynamically by CSharpEngine -->
+                    </div>
+
+                    <!-- Right: Live Execution Log -->
+                    <div class="execution-log-panel">
+                        <div class="panel-header">
+                            <span>📡 Program Execution Console</span>
+                            <button class="action-btn btn-outline" id="clearLogBtn" style="padding: 0.2rem 0.5rem; font-size: 0.72rem;">Clear</button>
+                        </div>
+                        <div class="log-scroll-area" id="executionLog">
+                            <div class="log-entry log-info">
+                                <span class="log-time">[Ready]</span> C# Runtime Engine ready. Adjust parameters or interact with the controls on the left.
+                            </div>
+                        </div>
+                        <div class="log-controls">
+                            <span style="font-size: 0.75rem; color: #a855f7;">CLR v3.5 Environment</span>
+                            <span style="font-size: 0.7rem; color: var(--text-dim);">Real-Time Event Dispatcher</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: Source Code -->
+            <div class="tab-pane" id="tabCode">
+                <div class="code-container">
+                    <div class="code-container-header">
+                        <span>📄 C# 3.0 Source Code &bull; Compatible with Visual Studio 2008</span>
+                        <span>Full Standalone Code (No Broken Designer Files)</span>
+                    </div>
+                    <pre class="code-pre" id="csCodeBlock"></pre>
+                </div>
+            </div>
+
+            <!-- TAB 3: Visual Studio Command Prompt -->
+            <div class="tab-pane" id="tabTerminal">
+                <div id="terminalContainer">
+                    <!-- CSharpTerminal loads here -->
+                </div>
+            </div>
+
+            <!-- TAB 4: Theory & Architecture -->
+            <div class="tab-pane" id="tabTheory">
+                <div class="theory-card">
+                    <h3>💡 Assignment Objective &amp; Logic</h3>
+                    <p id="theoryDescription">Loading description...</p>
+                </div>
+
+                <div class="theory-card" style="margin-top: 1rem;">
+                    <h3>⚙️ Architectural &amp; Runtime Notes</h3>
+                    <ul class="theory-list" id="theoryNotes">
+                        <li>Loading notes...</li>
+                    </ul>
+                </div>
+
+                <div class="theory-card" style="margin-top: 1rem;">
+                    <h3>🧪 Sample Test Inputs</h3>
+                    <div style="background: rgba(0,0,0,0.3); padding: 0.75rem 1rem; border-radius: 8px; font-family: var(--font-code); font-size: 0.85rem; color: #38bdf8;" id="theoryCodeSample">
+                        Standard execution
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Application Scripts -->
+    <script src="programs-data.js"></script>
+    <script src="terminal.js"></script>
+    <script src="engine.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
